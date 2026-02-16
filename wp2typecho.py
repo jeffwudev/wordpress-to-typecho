@@ -128,7 +128,7 @@ class WP2Typecho:
             'ip': self._get_text(comment.find('wp:comment_author_IP', self.namespaces)),
             'date': self._get_text(comment.find('wp:comment_date', self.namespaces)),
             'content': self._get_text(comment.find('wp:comment_content', self.namespaces)),
-            'approved': 1 if comment_approved is not None and comment_approved.text == '1' else 0,
+            'approved': 'approved' if comment_approved is not None and comment_approved.text == '1' else 'waiting',
             'parent': self._get_text(comment.find('wp:comment_parent', self.namespaces), '0')
         }
     
